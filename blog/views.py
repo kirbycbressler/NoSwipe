@@ -7,12 +7,21 @@ from django.views.generic.edit import (
 from django.urls import reverse_lazy
 from .models import Post
 
-class BlogListView(ListView):
+class AdminBlogListView(ListView):
   model = Post
-  template_name = "home.html"
-  context_object_name = "all_posts_list"
+  template_name = "admin_home.html"
+  context_object_name = "admin_all_posts_list"
 
-class BlogDetailView(DetailView):
+class UserBlogListView(ListView):
+  model = Post
+  template_name = "user_home.html"
+  context_object_name = "user_all_posts_list"
+
+class UserBlogDetailView(DetailView):
+  model= Post
+  template_name = "user_post_detail.html"
+
+class AdminBlogDetailView(DetailView):
   model= Post
   template_name = "post_detail.html"
 
